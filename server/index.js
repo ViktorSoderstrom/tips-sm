@@ -10,5 +10,5 @@ app.use(bodyParser.json())
 app.use(cors())
 app.use('/', api)
 
-const PORT = process.env.PORT || 8080
+const PORT = process.env.PORT || 8081
 app.listen(PORT, () => console.log(`server startet @ port ${PORT}`))
