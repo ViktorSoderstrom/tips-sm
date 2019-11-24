@@ -1,6 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
+const { sequelize } = require('./models')
 
 const app = express()
 
@@ -11,4 +12,7 @@ app.use(cors())
 app.use('/', api)
 
 const PORT = process.env.PORT || 8081
-app.listen(PORT, () => console.log(`server startet @ port ${PORT}`))
+
+sequelize.sync().then(() => {
+  app.listen(PORT, () => console.log(`server startet @ port ${PORT}`))
+})
